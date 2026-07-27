@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,9 +45,8 @@ public class NinjaController {
     }
 
     // Deletar ninja    (DELETE)
-    @DeleteMapping("/deletarId")
-    public String deletarNinjaPorId(){
-        return "Ninja deletado por id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id) {
+        ninjaService.deletarNinjaPorId(id);
     }
-
 }
